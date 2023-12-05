@@ -17,7 +17,9 @@
     routerLink="/login"
     ariaCurrentWhenActive="page">
     Login</a>
+  <p *ngIf="userService.currentUser"> Logged in as {{ userService.currentUser.email }}</p>
 </nav>
+
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">An item</li>

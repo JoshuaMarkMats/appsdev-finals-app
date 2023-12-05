@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,29 +12,40 @@ export class LoginComponent {
   email = ''
   password = ''
 
-  constructor(private auth: AngularFireAuth, private firestore: AngularFirestore)  {}
+  constructor(private auth: AngularFireAuth, private userService: UserService, private firestore: AngularFirestore)  {}
 
+  //le login
   login() {
+    //check if password is empty
     if(this.password.trim() === '') {
       alert('Please fill in a password');
       return;
     }
 
-    const fictionalEmail = '${this.email}@example.com';
-
-    this.auth.signInWithEmailAndPassword(fictionalEmail, this.password).then(response =>{
+    this.auth.signInWithEmailAndPassword(this.email, this.password).then(response =>{
       alert('Successfully logged in!');
 
-      //check for admin
-      /*if (fictionalEmail === 'admin@example.com') {
-        alert('Administrator logged in!')
-      }*/
+      this.userService.currentUser = {
+        uid: response.user?.uid,
+        email: this.email
+      }
+
+      //check if current user is admin
+      this.userService.isAdmin = this.checkAdmin(this.email);
     })
     .catch(error => {
       alert('Error logging in:' + error);
     })
   }
 
+  //runnin a check for administrator
+  private checkAdmin(email: string): boolean {
+    if (email === 'admin@example.com')
+      alert("Hello, Administrator.");
+    return email === 'admin@example.com';
+  }
+
+  //le register
   register() {
     if (this.password.trim() === '')
     {

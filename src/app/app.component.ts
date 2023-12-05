@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private store: AngularFirestore) {}
+  constructor(private store: AngularFirestore, public userService: UserService) {}
   title = 'appsdev-finals-app';
 }
