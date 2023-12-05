@@ -8,6 +8,11 @@ import { ProjectsComponent } from './projects/projects.component';
 import { StudentsComponent } from './students/students.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
