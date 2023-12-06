@@ -28,6 +28,8 @@ export class SignupComponent {
       return;
     }
 
+    alert(this.email);
+
     this.auth.createUserWithEmailAndPassword(this.email, this.password).then(response => {
       alert("Sucessfully registered!");
 
