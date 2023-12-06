@@ -1,6 +1,42 @@
-<form (ngSubmit)="login()" #loginForm="ngForm">
-    <label>Email: <input type = "email" [(ngModel)]="email" name="email" required /></label><br>
-    <label>Password: <input type = "password" [(ngModel)]="password" name="password" required /></label><br>
-    <button type = "submit">Login</button>   
-</form>
-<a routerLink="/signup">No Account? Sign Up!</a>
+<div class = "container">
+    <div class="row justify-content-center">
+        <div id="loginwindow" class="col-md-6">
+            <p class="fs-1 fw-bold text-center text-white" id="logintext">Log In</p>
+                <div class="row">
+                    <form (ngSubmit)="login()" #loginForm="ngForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-white">Email address</label>
+                            <input 
+                                type="email" 
+                                class="form-control loginfield" 
+                                id="email"
+                                aria-describedby="emailHelp" 
+                                [(ngModel)]="email" 
+                                name="email" 
+                                required />
+                            <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else... maybe...</div>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-white">Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control loginfield" 
+                                id="email"
+                                [(ngModel)]="password" 
+                                name="password" 
+                                required />
+                        </div>
+                        <br>
+                        
+                        <div class = "mb-3 d-grid gap-2">
+                            <button type="submit" class="btn btn-light btn-lg">Continue</button>
+                        </div>
+                        
+                        <a routerLink="/signup" class="text-white">No Account? Sign Up!</a>
+                    </form>
+                </div>
+        </div>          
+    </div>
+    
+</div>
