@@ -51,13 +51,13 @@ export class LoginComponent {
       .subscribe((user:any) => {
         if (user) {
           //user info
-          this.userService.currentUser = {
+          UserService.currentUser = {
             username: user.username,
             uid :userID,
             email: user.email
           };
           //whether user is an admin
-          this.userService.isAdmin = this.checkAdmin(this.email);
+          UserService.isAdmin = this.checkAdmin(this.email);
         }       
       });
     }    

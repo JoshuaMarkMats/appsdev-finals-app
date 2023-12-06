@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-project-upload',
@@ -17,13 +15,22 @@ export class ProjectUploadComponent {
   description = ''
   projectLink = ''
 
-  constructor(private store: AngularFirestore) {}
+  constructor(
+    private store: AngularFirestore, 
+    private router: Router
+    ) {
+      if (!UserService.currentUser.username)
+        this.router.navigate(['/projects']);
+    }
 
-  uploadTest() {
+  uploadProject() {
     this.store.collection('projects').doc(this.projectName).set({
+      author: UserService.currentUser.username,
       imageUrl: this.imageUrl,
       description: this.description,
       projectLink: this.projectLink
     })
+    alert("Project Published!");
+    this.router.navigate(['/projects']);
   }
 }

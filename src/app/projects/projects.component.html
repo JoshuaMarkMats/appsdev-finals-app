@@ -1,4 +1,6 @@
 <div *ngFor="let project of projects$ | async">
-    <img [src]="project.imageUrl" alt="Project Image" />
-    <p>Owner: {{ project.owner }}</p>
+    <img [src]="project.imageUrl" [alt]="project + ' Image'" />
+    <p>Author: {{ project.author }}</p>
+    <p>Description: {{ project.description }}</p>
+    <a [href]="project.projectLink">Project Link</a>
   </div>

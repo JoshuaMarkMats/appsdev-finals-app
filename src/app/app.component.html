@@ -27,10 +27,17 @@
     </div> 
   </div>
   <a class="button" 
-    routerLink="/login"
-    ariaCurrentWhenActive="page">
+      *ngIf="getUsername()"
+      routerLink="/upload"
+      ariaCurrentWhenActive="page">
+    Upload Project</a>
+  <a class="button" 
+      *ngIf="!getUsername()"
+      routerLink="/login"
+      ariaCurrentWhenActive="page">
     Login</a>
-  <p *ngIf="userService.currentUser"> Logged in as {{ userService.currentUser.username }}</p>
+  <!-- <p *ngIf="auth.user"> Logged in as {{ userService.currentUser.username }}</p> -->
+  <p *ngIf="getUsername()"> Logged in as {{ getUsername() }}</p>
 </div>
 
 

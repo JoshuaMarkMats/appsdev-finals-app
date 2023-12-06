@@ -8,6 +8,11 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private store: AngularFirestore, public userService: UserService) {}
+  constructor(private store: AngularFirestore, public userService: UserService) { }
   title = 'appsdev-finals-app';
+
+  getUsername() : string {
+    return UserService.currentUser.username;
+  }
+
 }

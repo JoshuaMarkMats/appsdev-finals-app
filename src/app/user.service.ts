@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  currentUser = {
+  static currentUser = {
     username: '' as string,
     uid: '' as string,
     email: '' as string
   } 
 
-  isAdmin: boolean = false;
+  static isAdmin: boolean = false;
 
   constructor() {}
 }

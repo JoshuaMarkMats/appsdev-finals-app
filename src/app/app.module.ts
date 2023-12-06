@@ -9,6 +9,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
+import { AuthGuard } from './auth.guard';
 
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
