@@ -12,7 +12,11 @@ export class LoginComponent {
   email = ''
   password = ''
 
-  constructor(private auth: AngularFireAuth, private userService: UserService, private firestore: AngularFirestore)  {}
+  constructor(
+    private auth: AngularFireAuth, 
+    private userService: UserService, 
+    private firestore: AngularFirestore
+  )  {}
 
   //le login
   login() {
@@ -22,20 +26,44 @@ export class LoginComponent {
       return;
     }
 
-    this.auth.signInWithEmailAndPassword(this.email, this.password).then(response =>{
-      alert('Successfully logged in!');
+    this.auth
+      .signInWithEmailAndPassword(this.email, this.password)
+      .then(response =>{
+        alert('Successfully logged in!');
 
-      this.userService.currentUser = {
+        /*this.userService.currentUser = {
         uid: response.user?.uid,
         email: this.email
-      }
+        }
 
-      //check if current user is admin
-      this.userService.isAdmin = this.checkAdmin(this.email);
-    })
-    .catch(error => {
+        //check if current user is admin
+        this.userService.isAdmin = this.checkAdmin(this.email);*/
+        this.fetchUserInfo(response.user?.uid);
+      })
+      .catch(error => {
       alert('Error logging in:' + error);
-    })
+      })
+  }
+
+  //store info from database
+  private fetchUserInfo(userID: string | undefined): void {
+    if (userID) {
+      this.firestore
+      .collection('users')
+      .doc(userID)
+      .valueChanges()
+      .subscribe((user:any) => {
+        if (user) {
+          //user info
+          this.userService.currentUser = {
+            uid:userID,
+            email: user.email
+          };
+          //whether user is an admin
+          this.userService.isAdmin = this.checkAdmin(this.email);
+        }       
+      });
+    }    
   }
 
   //runnin a check for administrator
