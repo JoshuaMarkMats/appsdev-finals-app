@@ -9,6 +9,10 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  //show login or signup depending
+  signingUp : boolean = false;
+
+  username = ''
   email = ''
   password = ''
 
@@ -30,14 +34,6 @@ export class LoginComponent {
       .signInWithEmailAndPassword(this.email, this.password)
       .then(response =>{
         alert('Successfully logged in!');
-
-        /*this.userService.currentUser = {
-        uid: response.user?.uid,
-        email: this.email
-        }
-
-        //check if current user is admin
-        this.userService.isAdmin = this.checkAdmin(this.email);*/
         this.fetchUserInfo(response.user?.uid);
       })
       .catch(error => {
@@ -56,7 +52,8 @@ export class LoginComponent {
         if (user) {
           //user info
           this.userService.currentUser = {
-            uid:userID,
+            username: user.username,
+            uid :userID,
             email: user.email
           };
           //whether user is an admin
@@ -85,11 +82,16 @@ export class LoginComponent {
       alert("Sucessfully registered and logged in!");
 
       this.firestore.collection('users').doc(response.user?.uid).set({
+        username: this.username,
         email: this.email
       });
     })
     .catch(error =>{
       alert("Error Registering: " + error);
     })
+  }
+
+  toggleSignup() {
+    this.signingUp = !this.signingUp;
   }
 }

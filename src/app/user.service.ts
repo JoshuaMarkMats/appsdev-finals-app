@@ -4,7 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  currentUser: any; // Modify the type based on your user data structure
+  currentUser = {
+    username: '' as string,
+    uid: '' as string,
+    email: '' as string
+  } 
+
   isAdmin: boolean = false;
 
   constructor() {}

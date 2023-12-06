@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
     constructor(private auth: AngularFireAuth, private router: Router, private userService: UserService) {}
     
     canActivate(): boolean {
-        if (this.userService.currentUser) {
+        if (this.userService.currentUser.uid) {
             return true;
         }
         else {

@@ -1,4 +1,4 @@
-<p>projects works!</p>
-<p *ngIf="userService.isAdmin">
-    ngl admin kinda gay
-</p>
+<div *ngFor="let project of projects$ | async">
+    <img [src]="project.imageUrl" alt="Project Image" />
+    <p>Owner: {{ project.owner }}</p>
+  </div>
