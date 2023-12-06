@@ -25,7 +25,11 @@ export class ProjectUploadComponent {
     }
 
   uploadProject() {
-    this.store.collection('projects').doc(this.projectName).set({
+    const docRef = this.store.collection('projects').doc()
+    
+    docRef.set({
+      id: docRef.ref.path,
+      name: this.projectName,
       author: this.userService.currentUser.username,
       imageUrl: this.imageUrl,
       description: this.description,

@@ -1,6 +1,13 @@
 <div *ngFor="let project of projects$ | async">
-    <img [src]="project.imageUrl" [alt]="project + ' Image'" />
+    <img [src]="project.imageUrl" [alt]="project.name + ' Image'" />
+    <p>{{ project.name }}</p>
     <p>Author: {{ project.author }}</p>
     <p>Description: {{ project.description }}</p>
     <a [href]="project.projectLink">Project Link</a>
+    {{ project.name }}
+    <button type="button" 
+        class="btn btn-danger"
+        (click) = "deleteProject(project.id, project.name)"
+        *ngIf="userService.isAdmin || userService.currentUser.username === project.author">
+      Delete</button>
   </div>
