@@ -11,8 +11,4 @@ export class AppComponent {
   constructor(private store: AngularFirestore, public userService: UserService) { }
   title = 'appsdev-finals-app';
 
-  getUsername() : string {
-    return UserService.currentUser.username;
-  }
-
 }

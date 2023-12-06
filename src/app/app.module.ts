@@ -18,6 +18,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 import { FormsModule } from '@angular/forms';
 import { ProjectUploadComponent } from './project-upload/project-upload.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectUploadComponent } from './project-upload/project-upload.componen
     ProjectsComponent,
     StudentsComponent,
     LoginComponent,
-    ProjectUploadComponent
+    ProjectUploadComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

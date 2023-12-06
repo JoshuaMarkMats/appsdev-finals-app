@@ -7,10 +7,10 @@ import { UserService } from "./user.service";
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-    constructor(private auth: AngularFireAuth, private router: Router) {}
+    constructor(private auth: AngularFireAuth, private router: Router, private userService: UserService) {}
     
     canActivate(): boolean {
-        if (UserService.currentUser.uid) {
+        if (this.userService.currentUser.uid) {
             return true;
         }
         else {

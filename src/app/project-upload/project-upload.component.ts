@@ -17,15 +17,16 @@ export class ProjectUploadComponent {
 
   constructor(
     private store: AngularFirestore, 
-    private router: Router
+    private router: Router,
+    private userService: UserService
     ) {
-      if (!UserService.currentUser.username)
+      if (!userService.currentUser.username)
         this.router.navigate(['/projects']);
     }
 
   uploadProject() {
     this.store.collection('projects').doc(this.projectName).set({
-      author: UserService.currentUser.username,
+      author: this.userService.currentUser.username,
       imageUrl: this.imageUrl,
       description: this.description,
       projectLink: this.projectLink
