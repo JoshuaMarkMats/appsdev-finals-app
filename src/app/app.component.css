@@ -4,12 +4,19 @@
 
 .f1{
    font-family: 'Times New Roman', Times, serif; 
-   color: rgb(255, 255, 59);
+   color: rgb(255, 255, 255);
+   text-align: left;
 }
+
+.f2{
+    font-family: 'Times New Roman', Times, serif; 
+    color: rgb(255, 255, 255);
+    text-align: left;
+ }
 
 .button{
     color: white;
-    background-color: rgb(32, 145, 89);
+    background-color: rgb(87, 14, 14);
     font-size: larger;
     padding: 5px 20px;
     border-radius: 16px;
