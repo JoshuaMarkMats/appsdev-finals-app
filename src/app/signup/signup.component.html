@@ -1,1 +1,7 @@
-<p>signup works!</p>
+<form (ngSubmit)="signUp()" #loginForm="ngForm">
+    <label>Username: <input type = "email" [(ngModel)]="username" name="username" required /></label><br>
+    <label>Email: <input type = "email" [(ngModel)]="email" name="email" required /></label><br>
+    <label>Password: <input type = "password" [(ngModel)]="password" name="password" required /></label><br>
+    <button type = "submit">Login</button>   
+</form>
+<a routerLink="/login">Already have an account? Log in!</a>

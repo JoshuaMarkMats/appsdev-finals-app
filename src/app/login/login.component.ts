@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   constructor(
     private auth: AngularFireAuth, 
     private firestore: AngularFirestore,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   )  {}
 
   //le login
@@ -31,6 +33,7 @@ export class LoginComponent {
       .then(response =>{
         alert('Successfully logged in!');
         this.userService.fetchUserInfo(response.user?.uid);
+        this.router.navigate(['']);
       })
       .catch(error => {
       alert('Error logging in:' + error);

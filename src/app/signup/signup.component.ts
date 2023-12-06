@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +17,11 @@ export class SignupComponent {
   constructor(
     private auth: AngularFireAuth, 
     private firestore: AngularFirestore,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   )  {}
   //le register
-  register() {
+  signUp() {
     if (this.password.trim() === '')
     {
       alert("Password cannot be empty");
@@ -39,6 +41,7 @@ export class SignupComponent {
       .signInWithEmailAndPassword(this.email, this.password)
       .then(response =>{
         this.userService.fetchUserInfo(response.user?.uid);
+        this.router.navigate(['']);
       })
       .catch(error => {
       alert('Error logging in:' + error);
