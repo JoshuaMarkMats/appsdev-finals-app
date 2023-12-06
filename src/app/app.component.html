@@ -1,4 +1,4 @@
-<div class="card" style="background-color: rgb(0, 0, 0);">
+<div class="card" style="background-image: linear-gradient(black, rgb(48, 2, 2));">
   <div class="card-body">
     <div class="container">
       <div class="row">
@@ -13,46 +13,78 @@
         </div>
 
         <div class="col-4"> <!--Second-->
-          <nav>
-            <a class="button"  
-                routerLink="">
-              Home</a> |
-            <a class="button" 
-                routerLink="/projects" 
-                routerLinkActive="activebutton"
-                ariaCurrentWhenActive="page">
-              Projects</a> |
-            <a class="button" 
-                routerLink="/students" 
-                routerLinkActive="activebutton"
-                ariaCurrentWhenActive="page">
-              Students</a>
-          </nav>
+          <div style="padding-top: 0px;">
+            <nav>              
+              <a class="button" 
+                  routerLink="/projects" 
+                  routerLinkActive="activebutton"
+                  ariaCurrentWhenActive="page">
+                Projects</a> |
+              <a class="button" 
+                  routerLink="/students" 
+                  routerLinkActive="activebutton"
+                  ariaCurrentWhenActive="page">
+                Students</a> |
+                <a class="button"  
+                  routerLink="">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor" class="bi bi-house-door-fill" viewBox="2 2 13 13">
+                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+                  </svg></a> 
+            </nav>
+          </div>         
         </div>
 
       </div>
     </div> 
   </div>
-  <a class="button" 
-      *ngIf="userService.currentUser.username"
-      routerLink="/upload"
-      ariaCurrentWhenActive="page">
-    Upload Project</a>
-    
-  <div *ngIf="!userService.currentUser.username">
-    <a class="button" 
-        routerLink="/login"
-      ariaCurrentWhenActive="page">
-      Login</a>
-    <a class="button" 
-        routerLink="/signup"
-        ariaCurrentWhenActive="page">  
-      Sign Up</a>
+
+  
+
+  <div class="card" style="background-color: rgb(53, 11, 11);">
+      <div class="card-body" >
+
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-6">
+
+              <div style="padding-left: 0px;">
+                  <a class="button" 
+                    *ngIf="userService.currentUser.username"
+                    routerLink="/upload"
+                    ariaCurrentWhenActive="page">
+                  Upload Project</a>
+                  
+                <div *ngIf="!userService.currentUser.username">
+                  <a class="button" 
+                      routerLink="/login"
+                    ariaCurrentWhenActive="page">
+                    Login</a> |
+                  <a class="button" 
+                      routerLink="/signup"
+                      ariaCurrentWhenActive="page">  
+                    Sign Up</a>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-2">
+              <!--Keep this empty-->     
+            </div>
+
+            <div class="col-4">
+              <!-- <p *ngIf="auth.user"> Logged in as {{ userService.currentUser.username }}</p> -->
+              <p *ngIf="userService.currentUser.username" style="background-color: red;"> Logged in as {{ userService.currentUser.username }}</p>
+
+            </div>
+          </div>
+        </div>
+      
+    </div>
   </div>
- 
-  <!-- <p *ngIf="auth.user"> Logged in as {{ userService.currentUser.username }}</p> -->
-  <p *ngIf="userService.currentUser.username"> Logged in as {{ userService.currentUser.username }}</p>
 </div>
+  
+
+  <router-outlet></router-outlet>
 
 
-<router-outlet></router-outlet>
+
