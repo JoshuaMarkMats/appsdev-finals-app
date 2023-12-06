@@ -1,2 +1,11 @@
-<!-- <input type="file" (change)="onFileSelected($event)" />
+<!-- <input type="file" (change)="onFileSelected($event)" >
 <button (click)="uploadImage()">Upload Image</button> -->
+
+<form (ngSubmit)="uploadTest()" #loginForm="ngForm">
+    <label>Project Name: <input type = "text" [(ngModel)]="projectName" name="projectName" required /></label><br>
+    <label>Image URL: <input type = "url" [(ngModel)]="imageUrl" name="imageUrl" required /></label><br>
+    <label>Description: <input type = "text" [(ngModel)]="description" name="description" required /></label><br>
+    <label>External Link: <input type = "url" [(ngModel)]="projectLink" name="link" required /></label><br>
+    <button type = "submit">Create Project</button>
+    
+</form>

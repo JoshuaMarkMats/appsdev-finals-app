@@ -79,12 +79,22 @@ export class LoginComponent {
     }
 
     this.auth.createUserWithEmailAndPassword(this.email, this.password).then(response => {
-      alert("Sucessfully registered and logged in!");
+      alert("Sucessfully registered!");
 
       this.firestore.collection('users').doc(response.user?.uid).set({
         username: this.username,
         email: this.email
       });
+
+      //the login portion, really just the body of login() copied
+      this.auth
+      .signInWithEmailAndPassword(this.email, this.password)
+      .then(response =>{
+        this.fetchUserInfo(response.user?.uid);
+      })
+      .catch(error => {
+      alert('Error logging in:' + error);
+      })
     })
     .catch(error =>{
       alert("Error Registering: " + error);

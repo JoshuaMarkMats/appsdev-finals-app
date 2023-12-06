@@ -2,46 +2,28 @@ import { Component } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserService } from '../user.service';
 import { finalize } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-image-upload',
+  selector: 'app-project-upload',
   templateUrl: './project-upload.component.html',
   styleUrls: ['./project-upload.component.css'],
 })
 export class ProjectUploadComponent {
-  /*selectedImage: File | null = null;
+  projectName = ''
+  imageUrl = ''
+  description = ''
+  projectLink = ''
 
-  constructor(
-    private storage: AngularFireStorage,
-    private firestore: AngularFirestore,
-    private auth: AngularFireAuth
-  ) {}
+  constructor(private store: AngularFirestore) {}
 
-  uploadImage(): void {
-    if (this.selectedImage) {
-      const filePath = `/uploads/${Date.now()}_${this.selectedImage.name}`; //date and filename
-      const fileRef = this.storage.ref(filePath);
-      const task = this.storage.upload(filePath, this.selectedImage);
-
-      task.snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe(url => {
-            // Save image details to Firestore
-            this.saveImageDetails(url);
-          });
-        })
-      ).subscribe();
-    }
+  uploadTest() {
+    this.store.collection('projects').doc(this.projectName).set({
+      imageUrl: this.imageUrl,
+      description: this.description,
+      projectLink: this.projectLink
+    })
   }
-
-  saveImageDetails(imageUrl: string): void {
-    const userId = this.auth.currentUser?.uid;
-    if (userId) {
-      this.firestore.collection('projects').add({
-        imageUrl,
-        owner: userId,
-      });
-    }
-  }*/
 }

@@ -15,7 +15,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
-
 import { FormsModule } from '@angular/forms';
 import { ProjectUploadComponent } from './project-upload/project-upload.component';
 
