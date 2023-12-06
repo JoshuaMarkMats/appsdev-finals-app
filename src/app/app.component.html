@@ -26,16 +26,24 @@
       </div>
     </div> 
   </div>
+
   <a class="button" 
       *ngIf="userService.currentUser.username"
       routerLink="/upload"
       ariaCurrentWhenActive="page">
     Upload Project</a>
-  <a class="button" 
-      *ngIf="!userService.currentUser.username"
-      routerLink="/login"
+    
+  <div *ngIf="!userService.currentUser.username">
+    <a class="button" 
+        routerLink="/login"
       ariaCurrentWhenActive="page">
-    Login</a>
+      Login</a>
+    <a class="button" 
+        routerLink="/signup"
+        ariaCurrentWhenActive="page">  
+      Sign Up</a>
+  </div>
+ 
   <!-- <p *ngIf="auth.user"> Logged in as {{ userService.currentUser.username }}</p> -->
   <p *ngIf="userService.currentUser.username"> Logged in as {{ userService.currentUser.username }}</p>
 </div>
