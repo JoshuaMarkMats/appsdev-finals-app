@@ -1,25 +1,32 @@
-<h1>Group Gamalyst Test</h1>
-<nav>
-  <a class="button" 
-      routerLink="">
-    Home</a> |
-  <a class="button" 
-      routerLink="/projects" 
-      routerLinkActive="activebutton"
-      ariaCurrentWhenActive="page">
-    Projects</a> |
-  <a class="button" 
-      routerLink="/students" 
-      routerLinkActive="activebutton"
-      ariaCurrentWhenActive="page">
-    Students</a>
-</nav>
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
+<div class="card" style="background-color: rgb(24, 102, 24);">
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col"> <!--First-->
+          <h1 class="f1">University of San Jose-Recoletos</h1>
+          <h3 class="f1">Bachelor of Science in Entertainment, Multimedia, and Computing</h3>       
+        </div>
+        <div class="col" > <!--Second-->
+          <nav>
+            <a class="button" 
+                routerLink="">
+              Home</a> |
+            <a class="button" 
+                routerLink="/projects" 
+                routerLinkActive="activebutton"
+                ariaCurrentWhenActive="page">
+              Projects</a> |
+            <a class="button" 
+                routerLink="/students" 
+                routerLinkActive="activebutton"
+                ariaCurrentWhenActive="page">
+              Students</a>
+          </nav>
+        </div>
+      </div>
+    </div> 
+  </div>
 </div>
+
 
 <router-outlet></router-outlet>
