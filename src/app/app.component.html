@@ -74,6 +74,7 @@
             <div class="col-4">
               <!-- <p *ngIf="auth.user"> Logged in as {{ userService.currentUser.username }}</p> -->
               <p *ngIf="userService.currentUser.username" style="background-color: red;"> Logged in as {{ userService.currentUser.username }}</p>
+              <!-- <p *ngIf="userService.isAdmin" style="background-color: red;"> Administrator</p> -->
 
             </div>
           </div>
@@ -83,9 +84,4 @@
   </div>
 </div>
   
-
-  <router-outlet></router-outlet>
-
 <router-outlet></router-outlet>
-
-<div id="footer"></div>
