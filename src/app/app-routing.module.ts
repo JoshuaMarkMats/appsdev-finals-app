@@ -8,7 +8,6 @@ import { ProjectUploadComponent } from './project-upload/project-upload.componen
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '', pathMatch: 'full' },
   {path: '', component: HomeComponent},
   {path: 'projects', component: ProjectsComponent},
   {path: 'aboutus', component: AboutUsComponent},
