@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { StudentsComponent } from './students/students.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
@@ -25,7 +25,7 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     HomeComponent,
     ProjectsComponent,
-    StudentsComponent,
+    AboutUsComponent,
     LoginComponent,
     ProjectUploadComponent,
     SignupComponent
