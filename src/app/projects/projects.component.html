@@ -17,7 +17,7 @@
                     <p>{{ project.description }}</p>
                     <a class= "btn btn-primary" [href]="project.projectLink">Go to Project</a>
                     <button 
-                        [hidden]="userService.isAdmin || (userService.currentUser.username === project.author)"
+                        [hidden]="!(userService.isAdmin || (userService.currentUser.username === project.author))"
                         type="button" 
                         class="btn btn-danger"
                         (click) = "deleteProject(project.id, project.name)">

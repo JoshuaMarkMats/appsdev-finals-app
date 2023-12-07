@@ -4,3 +4,30 @@
     background-image: linear-gradient(rgb(159, 19, 19), rgb(24, 6, 6));
     height:100vh;
 }
+
+.cardBack{
+    align-content: center;
+    color: rgb(0, 0, 0);
+    background-color: rgb(118, 24, 24);
+    border-color: black;
+    border-width: 15px;
+    padding: 30px;
+}
+
+#loginwindow {
+    background-color: rgb(69, 8, 8  );
+    margin: 10px;
+    padding: 30px;
+    border-style: solid;
+    border-width: 12px;
+    border-color: black;
+}
+
+#logintext {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginfield {
+    color: white;
+    background-color: black ;
+}
