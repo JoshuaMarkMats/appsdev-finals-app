@@ -1,13 +1,74 @@
-<div *ngFor="let project of projects$ | async">
-    <img [src]="project.imageUrl" [alt]="project.name + ' Image'" />
-    <p>{{ project.name }}</p>
-    <p>Author: {{ project.author }}</p>
-    <p>Description: {{ project.description }}</p>
-    <a [href]="project.projectLink">Project Link</a>
-    {{ project.name }}
-    <button type="button" 
-        class="btn btn-danger"
-        (click) = "deleteProject(project.id, project.name)"
-        *ngIf="userService.isAdmin || userService.currentUser.username === project.author">
-      Delete</button>
-  </div>
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <!-- <div class = "list-group">
+            <div class = "list-group-item" *ngFor="let project of projects$ | async">
+                <img [src]="project.imageUrl" [alt]="project.name + ' Image'" />
+                <p>{{ project.name }}</p>
+                <p>Author: {{ project.author }}</p>
+                <p>Description: {{ project.description }}</p>
+                <a [href]="project.projectLink">Project Link</a>
+                {{ project.name }}
+                <button type="button" 
+                    class="btn btn-danger"
+                    (click) = "deleteProject(project.id, project.name)"
+                    *ngIf="userService.isAdmin || userService.currentUser.username === project.author">
+                  Delete</button>
+              </div>
+        </div>  -->
+
+          <!-- <ngb-accordion>
+            <ngb-panel *ngFor="let project of projects$ | async" projectlist>
+
+              <ng-template ngbPanelTitle>
+                <img [src]="project.imageUrl" [alt]="project.name + ' Image'" />
+                <p> {{ project.name }} by {{ project.author }}</p>
+              </ng-template>
+
+              <ng-template ngbPanelContent>
+                <img [src]="project.imageUrl" [alt]="project.name + ' Image'" /><br>
+                <strong>Project Description:</strong> <br>
+                <p>{{ project.description }}</p>
+                <a class= "btn btn-primary" [href]="project.projectLink">Project Link</a>
+                <button type="button" 
+                    class="btn btn-danger"
+                    (click) = "deleteProject(project.id, project.name)"
+                    *ngIf="userService.isAdmin || userService.currentUser.username === project.author">
+                  Delete</button>
+              </ng-template>
+
+            </ngb-panel>
+          </ngb-accordion> -->
+
+          <div ngbAccordion class="projectlist">
+            <div ngbAccordionItem *ngFor="let project of projects$ | async" >
+              <div ngbAccordionHeader>
+                <button ngbAccordionButton class="projectitem">
+                    <div style="margin-right: 20px;">
+                        <img [src]="project.imageUrl" [alt]="project.name + ' Image'" class="samplepicture"/>
+                    </div>                    
+                    <p class = "text-white"> <span class = "fs-4 fw-bold">  {{ project.name}}</span> by {{ project.author }}</p>
+                </button>
+              </div>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                    <img [src]="project.imageUrl" [alt]="project.name + ' Image'" /><br>
+                    <strong>Project Description:</strong> <br>
+                    <p>{{ project.description }}</p>
+                    <a class= "btn btn-primary" [href]="project.projectLink">Go to Project</a>
+                    <button type="button" 
+                        class="btn btn-danger"
+                        (click) = "deleteProject(project.id, project.name)"
+                        *ngIf="userService.isAdmin || userService.currentUser.username === project.author">
+                      Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    
+</div>
+
+
+
+
