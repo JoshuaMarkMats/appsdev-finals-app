@@ -1,4 +1,11 @@
-body {
+:host {
+    display: block;
+    background-color: rgb(62, 0, 0); /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(159, 19, 19), rgb(24, 6, 6));
+    height:100vh;
+}
+
+/* body {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -6,7 +13,7 @@ body {
     background-color: rgb(62, 0, 0);
     background-image: linear-gradient(rgb(159, 19, 19), rgb(24, 6, 6));
     align-items: center;
-}
+} */
 
 .container{
     margin: 0;
